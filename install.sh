@@ -42,8 +42,8 @@ dd_system_menu() {
 while true; do
     clear
     echo -e "${Font_Blue}===============================${Font_Suffix}"
-    echo -e "${Font_Blue}           咸鱼自用工具箱         ${Font_Suffix}"
-    echo -e "${Font_Blue}        搜集的装机脚本         ${Font_Suffix}"
+    echo -e "\033[1;36m咸鱼自用工具箱\033[0m"
+	echo -e "\033[1;36m\033[搜集的装机脚本\033[0m"  # 2C表示右移2字符位
     echo -e "${Font_Blue}===============================${Font_Suffix}"
     echo -e "1. 一键安装docker以及docker compose"
     echo -e "2. 安装s-ui脚本"
