@@ -70,6 +70,34 @@ tools_system_use() {
     esac
 }
 
+# ip测试脚本
+ip_test() {
+	clear
+	echo -e "${Font_Blue}===============================${Font_Suffix}"
+    echo -e "${Font_Blue}     请选择你使用的ip测试工具       ${Font_Suffix}"
+    echo -e "${Font_Blue}===============================${Font_Suffix}"
+    echo -e "1. NS论坛酒神NodeQuality测试脚本（时间较长）"
+    echo -e "2. 融合怪测试（大约7-10分钟）"
+    echo -e "0. 返回主菜单"
+    echo -e "${Font_Blue}===============================${Font_Suffix}"
+    read -p "请输入数字选择: " sub_choice
+	
+	case $sub_choice in
+        1)
+            curl -sL https://run.NodeQuality.com
+            ;;
+        2)
+            curl -L https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh -o ecs.sh && chmod +x ecs.sh && bash ecs.sh
+            ;;
+        0)
+            return
+            ;;
+        *)
+            echo "无效的选择！"
+            ;;
+    esac
+}
+
 # 主菜单循环
 while true; do
     clear
@@ -78,7 +106,7 @@ while true; do
     echo -e "\033[1;36m搜集的装机脚本\033[0m"  # 2C表示右移2字符位
     echo -e "${Font_Blue}===============================${Font_Suffix}"
     echo -e "1. 安装自己需要的脚本（比如docker）"
-    echo -e "2. NS论坛酒神NodeQuality测试脚本"
+    echo -e "2. 选择你需要使用的ip测试工具"
     echo -e "3. NS论坛酒神DD系统（选择下载方式）"
     echo -e "0. 退出"
     echo -e "${Font_Blue}===============================${Font_Suffix}"
@@ -89,7 +117,7 @@ while true; do
             tools_system_use
             ;;
         2)
-            curl -sL https://run.NodeQuality.com
+            ip_test
             ;;
         3)
             dd_system_menu
