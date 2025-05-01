@@ -46,6 +46,7 @@ tools_system_use() {
     echo -e "${Font_Blue}===============================${Font_Suffix}"
     echo -e "1. 安装docker以及docker-compose"
     echo -e "2. 安装caddy反代工具"
+    echo -e "3. 安装s-ui面板工具"
     echo -e "0. 返回主菜单"
     echo -e "${Font_Blue}===============================${Font_Suffix}"
     read -p "请输入数字选择: " sub_choice
@@ -56,6 +57,9 @@ tools_system_use() {
             ;;
         2)
             curl -Ls https://raw.githubusercontent.com/qqzhoufan/myusetool/main/caddy.sh -o caddy.sh && chmod +x caddy.sh && ./caddy.sh
+            ;;
+		3)
+            curl -Ls https://raw.githubusercontent.com/alireza0/s-ui/master/install.sh -o install.sh && chmod +x install.sh && ./install.sh
             ;;
         0)
             return
@@ -71,7 +75,7 @@ while true; do
     clear
     echo -e "${Font_Blue}===============================${Font_Suffix}"
     echo -e "\033[1;36m咸鱼自用工具箱\033[0m"
-    echo -e "\033[1;36m\033[搜集的装机脚本\033[0m"  # 2C表示右移2字符位
+    echo -e "\033[1;36m搜集的装机脚本\033[0m"  # 2C表示右移2字符位
     echo -e "${Font_Blue}===============================${Font_Suffix}"
     echo -e "1. 安装自己需要的脚本（比如docker）"
     echo -e "2. 安装s-ui脚本"
@@ -86,12 +90,9 @@ while true; do
             tools_system_use
             ;;
         2)
-            curl -Ls https://raw.githubusercontent.com/alireza0/s-ui/master/install.sh -o install.sh && chmod +x install.sh && ./install.sh
-            ;;
-        3)
             curl -sL https://run.NodeQuality.com
             ;;
-        4)
+        3)
             dd_system_menu
             ;;
         0)
