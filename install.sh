@@ -49,6 +49,7 @@ while true; do
     echo -e "2. 安装s-ui脚本"
     echo -e "3. NS论坛酒神NodeQuality测试脚本"
     echo -e "4. NS论坛酒神DD系统（选择下载方式）"
+    echo -e "5. 安装caddy反代工具"
     echo -e "0. 退出"
     echo -e "${Font_Blue}===============================${Font_Suffix}"
     read -p "请输入数字选择操作: " choice
@@ -65,6 +66,9 @@ while true; do
             ;;
         4)
             dd_system_menu
+            ;;
+        5)
+            curl -Ls https://raw.githubusercontent.com/qqzhoufan/myusetool/main/caddy.sh -o caddy.sh && chmod +x caddy.sh && ./caddy.sh
             ;;
         0)
             echo "退出程序! "
