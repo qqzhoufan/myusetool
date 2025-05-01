@@ -43,7 +43,7 @@ while true; do
     clear
     echo -e "${Font_Blue}===============================${Font_Suffix}"
     echo -e "\033[1;36m咸鱼自用工具箱\033[0m"
-    echo -e "\033[1;36m\033[2C搜集的装机脚本\033[0m"  # 2C表示右移2字符位
+    echo -e "\033[1;36m搜集的装机脚本\033[0m"  # 2C表示右移2字符位
     echo -e "${Font_Blue}===============================${Font_Suffix}"
     echo -e "1. 一键安装docker以及docker compose"
     echo -e "2. 安装s-ui脚本"
