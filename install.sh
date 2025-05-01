@@ -38,6 +38,34 @@ dd_system_menu() {
     esac
 }
 
+# 脚本二级菜单：安装自己需要的脚本
+tools_system_use() {
+	clear
+	echo -e "${Font_Blue}===============================${Font_Suffix}"
+    echo -e "${Font_Blue}     请选择你需要安装的工具       ${Font_Suffix}"
+    echo -e "${Font_Blue}===============================${Font_Suffix}"
+    echo -e "1. 安装docker以及docker-compose"
+    echo -e "2. 安装caddy反代工具"
+    echo -e "0. 返回主菜单"
+    echo -e "${Font_Blue}===============================${Font_Suffix}"
+    read -p "请输入数字选择: " sub_choice
+	
+	case $sub_choice in
+        1)
+            curl -fsSL https://get.docker.com -o get-docker.sh && chmod +x get-docker.sh && ./get-docker.sh
+            ;;
+        2)
+            curl -Ls https://raw.githubusercontent.com/qqzhoufan/myusetool/main/caddy.sh -o caddy.sh && chmod +x caddy.sh && ./caddy.sh
+            ;;
+        0)
+            return
+            ;;
+        *)
+            echo "无效的选择！"
+            ;;
+    esac
+}
+
 # 主菜单循环
 while true; do
     clear
@@ -45,18 +73,17 @@ while true; do
     echo -e "\033[1;36m咸鱼自用工具箱\033[0m"
     echo -e "\033[1;36m\033[搜集的装机脚本\033[0m"  # 2C表示右移2字符位
     echo -e "${Font_Blue}===============================${Font_Suffix}"
-    echo -e "1. 一键安装docker以及docker compose"
+    echo -e "1. 安装自己需要的脚本（比如docker）"
     echo -e "2. 安装s-ui脚本"
     echo -e "3. NS论坛酒神NodeQuality测试脚本"
     echo -e "4. NS论坛酒神DD系统（选择下载方式）"
-    echo -e "5. 安装caddy反代工具"
     echo -e "0. 退出"
     echo -e "${Font_Blue}===============================${Font_Suffix}"
     read -p "请输入数字选择操作: " choice
 
     case $choice in
         1)
-            curl -fsSL https://get.docker.com -o get-docker.sh && chmod +x get-docker.sh && ./get-docker.sh
+            tools_system_use
             ;;
         2)
             curl -Ls https://raw.githubusercontent.com/alireza0/s-ui/master/install.sh -o install.sh && chmod +x install.sh && ./install.sh
@@ -66,9 +93,6 @@ while true; do
             ;;
         4)
             dd_system_menu
-            ;;
-        5)
-            curl -Ls https://raw.githubusercontent.com/qqzhoufan/myusetool/main/caddy.sh -o caddy.sh && chmod +x caddy.sh && ./caddy.sh
             ;;
         0)
             echo "退出程序! "
