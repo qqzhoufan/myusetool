@@ -78,9 +78,8 @@ while true; do
     echo -e "\033[1;36m搜集的装机脚本\033[0m"  # 2C表示右移2字符位
     echo -e "${Font_Blue}===============================${Font_Suffix}"
     echo -e "1. 安装自己需要的脚本（比如docker）"
-    echo -e "2. 安装s-ui脚本"
-    echo -e "3. NS论坛酒神NodeQuality测试脚本"
-    echo -e "4. NS论坛酒神DD系统（选择下载方式）"
+    echo -e "2. NS论坛酒神NodeQuality测试脚本"
+    echo -e "3. NS论坛酒神DD系统（选择下载方式）"
     echo -e "0. 退出"
     echo -e "${Font_Blue}===============================${Font_Suffix}"
     read -p "请输入数字选择操作: " choice
