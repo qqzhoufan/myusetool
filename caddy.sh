@@ -27,14 +27,14 @@ fi
 
 # 阶段1：系统更新（参考网页2）
 step_info "正在更新系统软件包..."
-if ! apt update && apt upgrade -y; then
+if ! sudo apt update && sudo apt upgrade -y; then
     error_exit "系统更新失败"
 fi
 
 # 阶段2：安装依赖项（参考网页1）
 step_info "安装必要依赖..."
 required_pkgs=(debian-keyring debian-archive-keyring apt-transport-https curl gpg)
-if ! apt install -y "${required_pkgs[@]}"; then
+if ! sudo apt install -y "${required_pkgs[@]}"; then
     error_exit "依赖安装失败"
 fi
 
@@ -60,16 +60,16 @@ fi
 
 # 阶段4：安装Caddy（参考网页2、3）
 step_info "更新软件源..."
-apt update || error_exit "软件源更新失败"
+sudo apt update || error_exit "软件源更新失败"
 
 step_info "正在安装Caddy..."
-if ! apt install -y caddy; then
+if ! sudo apt install -y caddy; then
     error_exit "Caddy安装失败"
 fi
 
 # 阶段5：服务管理（参考网页6最佳实践）
 step_info "启动Caddy服务..."
-systemctl restart caddy || error_exit "服务启动失败"
-systemctl enable --now caddy || error_exit "服务启用失败"
+sudo systemctl restart caddy || error_exit "服务启动失败"
+sudo systemctl enable --now caddy || error_exit "服务启用失败"
 
 echo -e "${GREEN}[成功] Caddy安装配置完成${NC}"
