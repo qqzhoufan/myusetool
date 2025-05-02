@@ -1,4 +1,4 @@
-进入到yaml下载的目录'/opt/qbittorrent/'下
+ 进入到yaml下载的目录'/opt/qbittorrent/'下
 
 ```cd /opt/qbittorrent```
 
