@@ -1,18 +1,18 @@
 #!/bin/bash
 
-Font_Black="\033[30m"
-Font_Red="\033[31m"
-Font_Green="\033[32m"
-Font_Yellow="\033[33m"
+# Font_Black="\033[30m"
+# Font_Red="\033[31m"
+# Font_Green="\033[32m"
+# Font_Yellow="\033[33m"
 Font_Blue="\033[34m"
-Font_Purple="\033[35m"
-Font_SkyBlue="\033[36m"
-Font_White="\033[37m"
+# Font_Purple="\033[35m"
+# Font_SkyBlue="\033[36m"
+# Font_White="\033[37m"
 Font_Suffix="\033[0m"
 
 
 write_wait() {
-          while read -t 0.001 -n 10000 discard; do :; done
+#         while read -t 0.001 -n 10000 discard; do :; done
           read -n 1 -s -r -p "按任意键退出..."
 }
 
@@ -27,7 +27,7 @@ docker_compose_nav() {
       echo -e "1. 下载qbittorrent"
       echo -e "0. 返回主菜单"
       echo -e "${Font_Blue}===============================${Font_Suffix}"
-      read -p "请输入数字选择: " sub_choice
+      read -r -p "请输入数字选择: " sub_choice
       
       case $sub_choice in
       1)
@@ -57,7 +57,7 @@ dd_system_menu() {
     echo -e "2. 使用wget下载DD"
     echo -e "0. 返回主菜单"
     echo -e "${Font_Blue}===============================${Font_Suffix}"
-    read -p "请输入数字选择: " sub_choice
+    read -r -p "请输入数字选择: " sub_choice
 
     case $sub_choice in
         1)
@@ -86,7 +86,7 @@ tools_system_use() {
     echo -e "3. 安装s-ui面板工具"
     echo -e "0. 返回主菜单"
     echo -e "${Font_Blue}===============================${Font_Suffix}"
-    read -p "请输入数字选择: " sub_choice
+    read -r -p "请输入数字选择: " sub_choice
 	
 	case $sub_choice in
         1)
@@ -120,12 +120,12 @@ ip_test() {
     echo -e "1. 融合怪测试（大约7-10分钟）"
     echo -e "0. 返回主菜单"
     echo -e "${Font_Blue}===============================${Font_Suffix}"
-    read -p "请输入数字选择: " sub_choice
+    read -r -p "请输入数字选择: " sub_choice
 	
 	case $sub_choice in
 #        1)
  #           bash <(curl -sL https://run.NodeQuality.com)
-#            wirte_wait
+#            write_wait
  #           ;;
         1)
             curl -L https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh -o ecs.sh && chmod +x ecs.sh && bash ecs.sh
@@ -153,7 +153,7 @@ while true; do
     echo -e "4. 下载需要的docker-compose文件"
     echo -e "0. 退出"
     echo -e "${Font_Blue}===============================${Font_Suffix}"
-    read -p "请输入数字选择操作: " choice
+    read -r -p "请输入数字选择操作: " choice
 
     case $choice in
         1)
