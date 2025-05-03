@@ -20,7 +20,7 @@ write_wait() {
 # 二级菜单下载需要的docker文件
 docker_compose_nav() {
   base_url="https://raw.githubusercontent.com/qqzhoufan/myusetool/main/docker-compose"
-  qbittorrent_url="${base_url}/qbittorrent"
+  qbittorrent_url="${base_url}/qb"
   file_name="docker-compose.yaml"
   target="/opt/qbittorrent/docker-compose.yaml"
   clear
