@@ -117,18 +117,18 @@ ip_test() {
 	echo -e "${Font_Blue}===============================${Font_Suffix}"
     echo -e "${Font_Blue}     请选择你使用的ip测试工具       ${Font_Suffix}"
     echo -e "${Font_Blue}===============================${Font_Suffix}"
-    echo -e "1. NS论坛酒神NodeQuality测试脚本（时间较长）"
-    echo -e "2. 融合怪测试（大约7-10分钟）"
+#    echo -e "1. NS论坛酒神NodeQuality测试脚本（时间较长）"
+    echo -e "1. 融合怪测试（大约7-10分钟）"
     echo -e "0. 返回主菜单"
     echo -e "${Font_Blue}===============================${Font_Suffix}"
     read -p "请输入数字选择: " sub_choice
 	
 	case $sub_choice in
+#        1)
+ #           bash <(curl -sL https://run.NodeQuality.com)
+#            wirte_wait
+ #           ;;
         1)
-            bash <(curl -sL https://run.NodeQuality.com)
-            wirte_wait
-            ;;
-        2)
             curl -L https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh -o ecs.sh && chmod +x ecs.sh && bash ecs.sh
             wirte_wait
             ;;
