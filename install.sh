@@ -11,7 +11,7 @@ Font_White="\033[37m"
 Font_Suffix="\033[0m"
 
 
-wirte_wait() {
+write_wait() {
           while read -t 0.001 -n 10000 discard; do :; done
           read -n 1 -s -r -p "按任意键退出..."
 }
@@ -33,12 +33,12 @@ docker_compose_nav() {
       
       case $sub_choice in
       1)
-          mkdir "/opt/qbittorrent"
+          sudo mkdir /opt/qbittorrent
           if ! curl -L -o "$target" "$url/qbittorrent/$file_name"; then
               echo "curl失败，尝试wget..."
               wget -O "$target" "$url/qbittorrent/$file_name"
           fi
-          wirte_wait
+          write_wait
         ;;
       0)
         return
