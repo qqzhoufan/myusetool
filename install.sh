@@ -21,7 +21,7 @@ write_wait() {
 docker_compose_nav() {
   base_url="https://raw.githubusercontent.com/qqzhoufan/myusetool/main/docker-compose"
   file_name="docker-compose.yaml"
-  target="/opt/qb/docker-compose.yaml"
+  target="/opt/qbittorrent/docker-compose.yaml"
   clear
       echo -e "${Font_Blue}===============================${Font_Suffix}"
       echo -e "${Font_Blue}     请选择需要下载的项目          ${Font_Suffix}"
