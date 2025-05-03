@@ -33,6 +33,7 @@ docker_compose_nav() {
       
       case $sub_choice in
       1)
+          mkdir "/opt/qbittorrent"
           if ! curl -L -o "$target" "$url/qbittorrent/$file_name"; then
               echo "curl失败，尝试wget..."
               wget -O "$target" "$url/qbittorrent/$file_name"
