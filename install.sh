@@ -11,6 +11,11 @@ Font_White="\033[37m"
 Font_Suffix="\033[0m"
 
 
+wirte_wait() {
+          while read -t 0.001 -n 10000 discard; do :; done
+          read -n 1 -s -r -p "按任意键退出..."
+}
+
 
 # 二级菜单下载需要的docker文件
 docker_compose_nav() {
@@ -32,6 +37,7 @@ docker_compose_nav() {
               echo "curl失败，尝试wget..."
               wget -O "$target" "$url/qbittorrent/$file_name"
           fi
+          wirte_wait
         ;;
       0)
         return
@@ -86,12 +92,15 @@ tools_system_use() {
 	case $sub_choice in
         1)
             curl -fsSL https://get.docker.com -o get-docker.sh && chmod +x get-docker.sh && ./get-docker.sh
+            wirte_wait
             ;;
         2)
             curl -Ls https://raw.githubusercontent.com/qqzhoufan/myusetool/main/caddy.sh -o caddy.sh && chmod +x caddy.sh && ./caddy.sh
+            wirte_wait
             ;;
 		    3)
             curl -Ls https://raw.githubusercontent.com/alireza0/s-ui/master/install.sh -o install.sh && chmod +x install.sh && ./install.sh
+            wirte_wait
             ;;
         0)
             return
@@ -116,10 +125,12 @@ ip_test() {
 	
 	case $sub_choice in
         1)
-            curl -sL https://run.NodeQuality.com
+            bash <(curl -sL https://run.NodeQuality.com)
+            wirte_wait
             ;;
         2)
             curl -L https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh -o ecs.sh && chmod +x ecs.sh && bash ecs.sh
+            wirte_wait
             ;;
         0)
             return
