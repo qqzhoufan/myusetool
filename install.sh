@@ -94,15 +94,15 @@ tools_system_use() {
 	case $sub_choice in
         1)
             curl -fsSL https://get.docker.com -o get-docker.sh && chmod +x get-docker.sh && ./get-docker.sh
-            wirte_wait
+            write_wait
             ;;
         2)
             curl -Ls https://raw.githubusercontent.com/qqzhoufan/myusetool/main/caddy.sh -o caddy.sh && chmod +x caddy.sh && ./caddy.sh
-            wirte_wait
+            write_wait
             ;;
 		    3)
             curl -Ls https://raw.githubusercontent.com/alireza0/s-ui/master/install.sh -o install.sh && chmod +x install.sh && ./install.sh
-            wirte_wait
+            write_wait
             ;;
         0)
             return
@@ -132,7 +132,7 @@ ip_test() {
  #           ;;
         1)
             curl -L https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh -o ecs.sh && chmod +x ecs.sh && bash ecs.sh
-            wirte_wait
+            write_wait
             ;;
         0)
             return
