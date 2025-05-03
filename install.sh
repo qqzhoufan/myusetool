@@ -20,6 +20,7 @@ write_wait() {
 # 二级菜单下载需要的docker文件
 docker_compose_nav() {
   base_url="https://raw.githubusercontent.com/qqzhoufan/myusetool/main/docker-compose"
+  qbittorrent_url="${base_url}/qbittorrent"
   file_name="docker-compose.yaml"
   target="/opt/qbittorrent/docker-compose.yaml"
   clear
@@ -33,10 +34,10 @@ docker_compose_nav() {
       
       case $sub_choice in
       1)
-          sudo mkdir /opt/qbittorrent
-          if ! curl -L -o "$target" "$url/qbittorrent/$file_name"; then
+          sudo mkdir -p /opt/qbittorrent
+          if ! curl -L -o "$target" "${qbittorrent_url}/${file_name}"; then
               echo "curl失败，尝试wget..."
-              wget -O "$target" "$url/qbittorrent/$file_name"
+              wget -O "$target" ${qbittorrent_url}/${file_name}"
           fi
           write_wait
         ;;
