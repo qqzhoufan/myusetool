@@ -6,7 +6,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Etc/UTC
+      - TZ=Asia/Shanghai
       - WEBUI_PORT=8080
       - TORRENTING_PORT=6881
     volumes:
